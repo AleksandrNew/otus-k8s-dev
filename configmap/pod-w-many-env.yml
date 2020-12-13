@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: promocode-factory-api
+  labels:
+    app: factory-api
+    version: "12.2020"
+spec:
+  containers:
+  - name: promocode-factory-api
+    image: docker.pkg.github.com/aleksandrnew/otus-k8s-dev/promocode-factory-api:12.2020
+    ports:
+      - name: http
+        containerPort: 80
+        protocol: TCP
+    envFrom:
+    - configMapKeyRef:
+        name: promocode-factory-api-settings

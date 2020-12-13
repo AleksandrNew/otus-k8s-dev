@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: promocode-factory-api-settings
+  labels:
+    app: factory-api
+    version: "12.2020"
+    env: dev
+data:
+  storageConstr: "storageConnectionSting"
+  redisConstr: "redisConnectionSting"
