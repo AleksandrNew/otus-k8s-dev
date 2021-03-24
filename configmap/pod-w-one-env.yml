@@ -13,9 +13,9 @@ spec:
       - name: http
         containerPort: 80
         protocol: TCP
-  env:
-  - name: STORAGE_CONNECTION_STRING
-    valueFrom:
-      configMapKeyRef:
-        name: promocode-factory-api-settings
-        key: storageConstr
+    env:
+    - name: STORAGE_CONNECTION_STRING
+      valueFrom:
+        configMapKeyRef:
+          name: promocode-factory-api-settings
+          key: storageConstr

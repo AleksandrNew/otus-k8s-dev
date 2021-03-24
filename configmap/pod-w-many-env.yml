@@ -14,5 +14,5 @@ spec:
         containerPort: 80
         protocol: TCP
     envFrom:
-    - configMapKeyRef:
+    - configMapRef:
         name: promocode-factory-api-settings
