@@ -8,15 +8,15 @@ metadata:
 spec:
   containers:
   - name: promocode-factory-api
-    image: docker.pkg.github.com/aleksandrnew/otus-k8s-dev/promocode-factory-api:12.2020
+    image: ghcr.io/aleksandrnew/otus-k8s-dev/promocode-factory-api:12.2020
     ports:
       - name: http
         containerPort: 80
         protocol: TCP
     livenessProbe:
       exec:
-        command: 
-         - cat 
+        command:
+         - cat
          - /app/web.config
       initialDelaySeconds: 5
       timeoutSeconds: 1 # Default is 1
@@ -24,10 +24,17 @@ spec:
       failureThreshold: 2 # Default is 3
     readinessProbe:
       exec:
-        command: 
-         - cat 
+        command:
+         - cat
          - /app/web.config
-      initialDelaySeconds: 60
+      initialDelaySeconds: 10
       timeoutSeconds: 5 # Default is 1
       periodSeconds: 30 # Default is 10
       failureThreshold: 5 # Default is 3
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        cpu: 100m
+        memory: 256Mi
